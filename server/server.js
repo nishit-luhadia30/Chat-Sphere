@@ -12,9 +12,21 @@ const app = express();
 //nishit95luhadia1_db_user
 //chatsphere_1234
 
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://chat-sphere-beta.vercel.app/"
+];
+
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "DELETE"]
 }));
 app.use(express.json());
 
