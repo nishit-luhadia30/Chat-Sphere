@@ -14,7 +14,7 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://chat-sphere-beta.vercel.app/"
+  "https://chat-sphere-beta.vercel.app"
 ];
 
 app.use(cors({
