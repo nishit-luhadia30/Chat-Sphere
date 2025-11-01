@@ -5,16 +5,26 @@ import MyChats from '../components/Chat/MyChats.jsx';
 import ChatBox from '../components/Chat/ChatBox.jsx';
 
 const ChatPage = () => {
-  const { user } = useChatContext();
+  const { user, selectedChat } = useChatContext();
   const [fetchAgain, setFetchAgain] = useState(false);
 
   return (
     <div className="w-full h-screen">
       {user && <SideDrawer />}
-      <div className="flex justify-between w-full h-[calc(100vh-4rem)] p-4 gap-4">
-        {user && <MyChats fetchAgain={fetchAgain} />}
+      <div className="flex w-full h-[calc(100vh-4rem)] p-4 gap-4 overflow-hidden">
         {user && (
-          <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+          <div className={`${
+            selectedChat ? 'hidden md:flex' : 'flex'
+          } w-full md:w-80 flex-shrink-0`}>
+            <MyChats fetchAgain={fetchAgain} />
+          </div>
+        )}
+        {user && (
+          <div className={`${
+            selectedChat ? 'flex' : 'hidden md:flex'
+          } flex-1 min-w-0`}>
+            <ChatBox fetchAgain={fetchAgain} setFetchAgain={setFetchAgain} />
+          </div>
         )}
       </div>
     </div>

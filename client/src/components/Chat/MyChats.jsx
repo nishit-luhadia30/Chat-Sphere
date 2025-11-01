@@ -74,7 +74,7 @@ const MyChats = ({ fetchAgain }) => {
 
   return (
     <>
-      <div className="flex flex-col w-full md:w-80 bg-white rounded-lg shadow-md">
+      <div className="flex flex-col w-full bg-white rounded-lg shadow-md">
         <div className="flex justify-between items-center p-4 border-b">
           <h3 className="text-xl font-semibold">My Chats</h3>
           <button

@@ -659,4 +659,47 @@ roved reaction picker */
     opacity: 1;
     transform: translateY(0);
   }
+}/* Mobile r
+esponsive chat layout */
+.flex-shrink-0 { flex-shrink: 0; }
+
+/* Ensure proper mobile layout */
+@media (max-width: 768px) {
+  .chat-mobile-full {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .chat-mobile-hidden {
+    display: none !important;
+  }
+  
+  .chat-mobile-visible {
+    display: flex !important;
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 769px) {
+  .chat-desktop-split {
+    display: flex;
+  }
+}/* Add
+itional responsive utilities */
+.overflow-hidden { overflow: hidden; }
+.min-w-0 { min-width: 0; }
+
+/* Mobile chat transitions */
+@media (max-width: 768px) {
+  .mobile-chat-transition {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .mobile-slide-left {
+    transform: translateX(-100%);
+  }
+  
+  .mobile-slide-right {
+    transform: translateX(100%);
+  }
 }
